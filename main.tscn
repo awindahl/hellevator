@@ -1,0 +1,197 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui.gd" type="Script" id=1]
+[ext_resource path="res://Start.gd" type="Script" id=2]
+[ext_resource path="res://floor.png" type="Texture" id=3]
+[ext_resource path="res://Walls.gd" type="Script" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 150, 15 )
+
+[node name="Game" type="Node2D" index="0"]
+
+[node name="ui" type="CanvasLayer" parent="." index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+
+[node name="Label" type="Label" parent="ui" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 21.0
+margin_top = 30.0
+margin_right = 61.0
+margin_bottom = 44.0
+rect_scale = Vector2( 3, 3 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "aaa"
+uppercase = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Start" type="StaticBody2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( 154.775, 95.9837 )
+scale = Vector2( 1.86796, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 2 )
+_sections_unfolded = [ "Collision", "Pause", "Pickable", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Start" index="0"]
+
+scale = Vector2( 4.76563, 1 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start" index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 158.358, -243.402 )
+scale = Vector2( 2.25932, 2.25932 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Walls" index="0"]
+
+scale = Vector2( 4.76563, 1 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall4" type="StaticBody2D" parent="Walls" index="2"]
+
+editor/display_folded = true
+position = Vector2( 75.4805, 222.152 )
+rotation = 1.5708
+scale = Vector2( 1.82849, 0.481656 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="Walls/Wall4" index="0"]
+
+scale = Vector2( 4.76563, 1 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4" index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall5" type="StaticBody2D" parent="Walls" index="3"]
+
+editor/display_folded = true
+position = Vector2( -82.5319, 221.374 )
+rotation = 1.5708
+scale = Vector2( 1.80417, 0.481656 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Walls/Wall5" index="0"]
+
+scale = Vector2( 4.76563, 1 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall5" index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Spawner" type="Node2D" parent="Walls" index="4"]
+
+position = Vector2( 0, 292.124 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Timer" type="Timer" parent="Walls" index="5"]
+
+process_mode = 1
+wait_time = 0.25
+one_shot = false
+autostart = true
+
+[node name="Player" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 150.549, -24.3308 )
+gravity_scale = 5.0
+
+[connection signal="timeout" from="Walls/Timer" to="Walls" method="_on_Timer_timeout"]
+
+
